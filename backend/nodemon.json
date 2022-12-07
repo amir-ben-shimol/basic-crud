@@ -1,0 +1,18 @@
+{
+  "restartable": "rs",
+  "ignore": [".git", "node_modules/", "dist/", "coverage/"],
+  "watch": ["src/"],
+  "execMap": {
+    "ts": "node -r ts-node/register"
+  },
+  "env": {
+    "DB_USER": "user",
+    "DB_PASSWORD": "ySuVZNb4Jq90JRg3",
+    "JWT_KEY": "secret",
+    "HTTP_ACCESS_IP": "*",
+    "PORT": "3000",
+    "JWT_SECRET": "DUMMY_SECRET",
+    "ADMIN_USERNAME": "admin"
+  },
+  "ext": "js,json,ts"
+}

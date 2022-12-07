@@ -1,28 +1,20 @@
 import express from "express";
 
 import apiRouter from "./routers/auth";
+import newsRouter from "./routers/news";
+
+import cors from "cors";
 
 const app: express.Application = express();
 
-app.use(
-  (req: express.Request, res: express.Response, next: express.NextFunction) => {
-    res.setHeader("Access-Control-Allow-Origin", process.env.HTTP_ACCESS_IP!); // What IPs can access this server
-    res.setHeader(
-      "Access-Control-Allow-Headers",
-      "Origin, X-Requested-With, Content-Type, Accept, Authorization"
-    );
-    res.setHeader(
-      "Access-Control-Allow-Methods",
-      "OPTIONS, GET, POST, PATCH, DELETE, PUT"
-    );
-    next();
-  }
-);
+
+app.use(cors());
 
 // Get the data string and convert it to an object
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use("/api/auth", apiRouter);
+app.use("/api/news", newsRouter);
 
 export default app;
